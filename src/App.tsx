@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import { AnagraphicDetails } from "./components/AnagraphicDetails";
 import { InfoCard } from "./components/InfoCard";
+import { ProcedureDetails } from "./components/ProcedureDetails";
 
 
 const App = () => {
@@ -12,8 +13,8 @@ const App = () => {
         </InfoCard>
       </Grid>
       <Grid item xs={4}>
-        <InfoCard title={"Procedure"} subtitle={"Procedure in tribunale"}>
-          <AnagraphicDetails />
+        <InfoCard title={"Procedure"} subtitle={"Procedure in tribunale"} topNumber={23}>
+          <ProcedureDetails />
         </InfoCard>
       </Grid>
       <Grid item xs={4}>
