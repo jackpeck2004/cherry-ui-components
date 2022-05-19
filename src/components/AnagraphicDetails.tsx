@@ -33,6 +33,7 @@ export const AnagraphicDetails: FC<IAnagraphicDetailsProps> = ({
         icon={<Person sx={{ color: "text.secondary" }} />}
         title={"Nome"}
         value={"John Doe"}
+        divider
       />
       {showDetails ? (
         <>
