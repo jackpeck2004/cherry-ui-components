@@ -1,4 +1,4 @@
-import { Box, List } from "@mui/material";
+import { List } from "@mui/material";
 import { Detail } from "./Detail";
 
 import {
@@ -10,25 +10,23 @@ import {
   Wc,
 } from "@mui/icons-material";
 import { FC, useState } from "react";
-import { RequestButton } from "./RequestButton";
 import { BlurDetails } from "./BlurDetails";
+import { IDetailsProps } from "./InfoCard";
+import { RequestButton } from "./RequestButton";
 
-export const AnagraphicDetails: FC = () => {
-  const [showAnagraphic, setShowAnagraphic] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+interface IAnagraphicDetailsProps extends IDetailsProps {}
+
+export const AnagraphicDetails: FC<IAnagraphicDetailsProps> = ({
+  showDetails,
+  isLoading,
+  onRequestButtonClick,
+}) => {
   const [data, setData] = useState<any>(null);
 
   const handleLoadAnagraphic = () => {
-    setShowAnagraphic(true);
-    setIsLoading(true);
-    setTimeout(() => {
-      setData({
-        name: "Juan Carlos",
-        lastName: "Perez",
-        age: "30",
-      });
-      setIsLoading(false);
-    }, 2000);
+    if (onRequestButtonClick) {
+      onRequestButtonClick();
+    }
   };
 
   return (
@@ -38,7 +36,7 @@ export const AnagraphicDetails: FC = () => {
         title={"Nome"}
         value={"John Doe"}
       />
-      {showAnagraphic ? (
+      {showDetails ? (
         <>
           <Detail
             icon={<HourglassBottom sx={{ color: "text.secondary" }} />}

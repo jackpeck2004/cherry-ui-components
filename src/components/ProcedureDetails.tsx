@@ -2,21 +2,21 @@ import { List } from "@mui/material";
 import { FC, useState } from "react";
 import { BlurDetails } from "./BlurDetails";
 import { Detail } from "./Detail";
+import { IDetailsProps } from "./InfoCard";
 import { RequestButton } from "./RequestButton";
 
-export const ProcedureDetails: FC = () => {
-  const [showProcedureDetails, setShowProcedureDetails] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+export interface IProcedureDetailsProps extends IDetailsProps {
+}
+
+export const ProcedureDetails: FC<IProcedureDetailsProps> = ({ showDetails, isLoading, onRequestButtonClick }) => {
 
   const handleLoadProcedure = () => {
-    setShowProcedureDetails(true);
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    if (onRequestButtonClick) {
+      onRequestButtonClick();
+    }
   };
 
-  if (!showProcedureDetails) {
+  if (!showDetails) {
     return (
       <List disablePadding>
         <RequestButton
@@ -54,31 +54,31 @@ export const ProcedureDetails: FC = () => {
   }
 
   return (
-      <List>
-        <Detail
-          value={80}
-          title={"PC"}
-          secondaryValue={10}
-          progress
-          percentage
-          isLoading={isLoading}
-        />
-        <Detail
-          value={60}
-          title={"ESIM"}
-          secondaryValue={12}
-          progress
-          percentage
-          isLoading={isLoading}
-        />
-        <Detail
-          value={20}
-          title={"ESM"}
-          secondaryValue={4}
-          progress
-          percentage
-          isLoading={isLoading}
-        />
-      </List>
+    <List>
+      <Detail
+        value={80}
+        title={"PC"}
+        secondaryValue={10}
+        progress
+        percentage
+        isLoading={isLoading}
+      />
+      <Detail
+        value={60}
+        title={"ESIM"}
+        secondaryValue={12}
+        progress
+        percentage
+        isLoading={isLoading}
+      />
+      <Detail
+        value={20}
+        title={"ESM"}
+        secondaryValue={4}
+        progress
+        percentage
+        isLoading={isLoading}
+      />
+    </List>
   );
 };
