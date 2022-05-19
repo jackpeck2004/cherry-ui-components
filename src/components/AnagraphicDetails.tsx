@@ -21,8 +21,6 @@ export const AnagraphicDetails: FC<IAnagraphicDetailsProps> = ({
   isLoading,
   onRequestButtonClick,
 }) => {
-  const [data, setData] = useState<any>(null);
-
   const handleLoadAnagraphic = () => {
     if (onRequestButtonClick) {
       onRequestButtonClick();
