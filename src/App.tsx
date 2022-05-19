@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from "@mui/material";
+import { AnagraphicDetails } from "./components/AnagraphicDetails";
+import { InfoCard } from "./components/InfoCard";
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container spacing={2} sx={{ padding: "0 20px" }}>
+      <Grid item xs={4}>
+        <InfoCard title={"Anagrafica"} subtitle={"Informazioni Anagrafiche"}>
+          <AnagraphicDetails />
+        </InfoCard>
+      </Grid>
+      <Grid item xs={4}>
+        <InfoCard title={"Procedure"} subtitle={"Procedure in tribunale"}>
+          <AnagraphicDetails />
+        </InfoCard>
+      </Grid>
+      <Grid item xs={4}>
+        <InfoCard title={"Lotti"} subtitle={"Lotti in asta"}>
+          <AnagraphicDetails />
+        </InfoCard>
+      </Grid>
+    </Grid>
   );
-}
+};
 
 export default App;
